@@ -80,7 +80,7 @@ angular:
 
 Uma outra forma (bem melhor) de controlar o **Burger** é chamando a aplicação de **Teleop**, que captura as teclas (W/A/S/D/X) e publica o comando no tópico `cmd_vel`. Para executar essa aplicação, digite
 
-> `$ roslaunch turtlebot3_teleop turtlebot3_tele_key.launch`
+> `$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch`
 
 <hr>
 
@@ -142,4 +142,4 @@ Na pasta do *catkin workspace*, lance o projeto e em seguida o teleop.
 >
 > `Ctrl+Z`
 >
-> `$ roslaunch turtlebot3_teleop turtlebot3_tele_key.launch`
+> `$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch`
