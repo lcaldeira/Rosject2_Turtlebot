@@ -43,6 +43,14 @@ Lembrando que o vim tem alguns comandos diferentes:
 - **esc** retorna ao modo de comandos;
 - **:wq** salva e sai.
 
+Dica: usar o comando `echo` para imprimir essas frases no fim do arquivo, sem abrir um editor:
+
+> `echo "cd catkin_ws" >> .bashrc`
+>
+> `echo "source devel/setup.bash" >> .bashrc`
+>
+> `echo "export TURTLEBOT3_MODEL=burger" >> .bashrc`
+
 <hr>
 
 ## O Burger em Mundo Aberto
@@ -95,3 +103,43 @@ Então clique em `Add`, filtre por tópicos e selecione
 Após uns instantes de inicialização, irá aparecer a imagem capturada pela câmera do *waffle*. Experimente executar o *teleop* para mover o robô e explorar a casa.
 
 <hr>
+
+## Festa das Tartarugas
+
+Agora vamos lançar 2 turtlebots ao mesmo tempo, e controlar ambos pelo teclado usando `teleop`.
+
+Primeiro, crie um novo pacote e, dentro, duas pastas: *launch* e *script*.
+
+> `$ cd catkin_ws/src`
+>
+> `$ catkin_create_pkg turtleparty std_msgs rospy`
+>
+> `$ cd turtleparty`
+>
+> `$ mkdir launch`
+>
+> `$ mkdir script`
+
+Na pasta de *launch* irá o código para lançar ambos os robôs num mapa aberto, enquanto que a pasta de *script* conterá um arquivo que vai interceptar as mensagens do *teleop* e publicará para ambos os robôs da simulação.
+
+> `$ vim launch/two_tb3.launch`
+>
+> `$ vim script/repeat_teleop.py`
+>
+> `$ sudo chmod +x script/repeat_teleop.py`
+
+Adicione a execução do nó de repetição ao `launch` com a entrada
+
+> `<node pkg="turtleparty" name="repeat_teleop" type="repeat_teleop.py" />`
+
+Na pasta do *catkin workspace*, lance o projeto e em seguida o teleop.
+
+> `$ catkin_make`
+>
+> `$ source devel/setup.bash`
+>
+> `$ roslaunch turtleparty two_tb3.launch`
+>
+> `Ctrl+Z`
+>
+> `$ roslaunch turtlebot3_teleop turtlebot3_tele_key.launch`
