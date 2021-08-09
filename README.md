@@ -51,7 +51,7 @@ Tendo o ambiente configurado, agora basta lançar a aplicação do **turtlebot3_
 
 > `$ roslaunch turtlebot3_gazebo turtlebot3_emty_world.launch`
 
-Para efeitos de curiosidade, dê uma olhada nos tópicos ativos em um novo t, lançados pela simulação.
+Para efeitos de curiosidade, dê uma olhada nos tópicos ativos em um novo terminal, lançados pela simulação.
 
 > `$ rostopic list`
 
